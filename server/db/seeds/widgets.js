@@ -1,30 +1,24 @@
 export async function seed(knex) {
   // Deletes ALL existing entries
-  await knex('widgets')
+  await knex('musicLinks')
     .del()
     .then(() => {
       // Inserts seed entries
-      return knex('widgets').insert([
+      return knex('musicLinks').insert([
         {
           id: 1,
-          name: 'Red widget',
-          price: 23.45,
-          mfg: 'Acme Inc.',
-          inStock: 4,
+          name: 'Hook Theory',
+          url: 'https://www.hooktheory.com/',
         },
         {
           id: 2,
-          name: 'Blue widget',
-          price: 423.47,
-          mfg: 'Acme Inc.',
-          inStock: 8,
+          name: 'Soundcloud',
+          url: 'https://soundcloud.com/',
         },
         {
           id: 3,
-          name: 'Yellow widget',
-          price: 123.4,
-          mfg: 'Acme Inc.',
-          inStock: 3,
+          name: 'Audio Joiner',
+          url: 'https://clideo.com/merge-audio',
         },
       ])
     })
