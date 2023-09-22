@@ -5,50 +5,60 @@ import { addWidget } from '../apiClient'
 function AddWidget({ onWidgetAdded }: { onWidgetAdded: () => void }) {
   const [name, setName] = useState('')
   const [url, setUrl] = useState('')
+  const [showForm, setShowForm] = useState(false) // State variable to toggle form display
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
     const newWidget: NewWidget = {
       name,
       url,
     }
-
     try {
       await addWidget(newWidget)
       console.log('Widget added successfully')
-      onWidgetAdded() // This will trigger the reloading of widgets
+      onWidgetAdded()
+      setShowForm(false) // Hide form after successful submission
     } catch (error) {
       console.error('Error adding widget:', error)
     }
   }
 
-  const handleNameChange = (e) => {
-    setName(e.target.value)
-  }
-
-  const handleUrlChange = (e) => {
-    setUrl(e.target.value)
-  }
-
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <h3>Add a URL</h3>
-        <label>
-          Name:
-          <input type="text" value={name} onChange={handleNameChange} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Url:
-          <input type="text" value={url} onChange={handleUrlChange} />
-        </label>
-      </div>
+    <div className="container">
+      <button className="form-button" onClick={() => setShowForm(!showForm)}>
+        {showForm ? 'Hide Form' : 'Add URL'}
+      </button>
 
-      <button type="submit">Submit</button>
-    </form>
+      {showForm && (
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label className="form-label">
+              Name:
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div>
+            <label className="form-label">
+              Url:
+              <input
+                type="text"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                className="form-input"
+              />
+            </label>
+          </div>
+          <button className="form-button" type="submit">
+            Submit
+          </button>
+        </form>
+      )}
+    </div>
   )
 }
 

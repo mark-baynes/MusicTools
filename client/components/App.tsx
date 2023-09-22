@@ -99,16 +99,13 @@ function App() {
       {widgets.map((widget) => (
         // Map over the 'widgets' array to render each widget along with Delete and Edit buttons
         <div key={widget.id}>
-      
           <p>Name: {widget.name}</p>
           <p>Url: {widget.url} </p>
           <button onClick={() => handleDelete(widget.id)}>Delete</button>
           <button onClick={() => handleEdit(widget.id)}>Edit</button>
         </div>
       ))}
-      <br></br>
       <AddWidget onWidgetAdded={() => setReloadWidgets(true)} />
-      
       {/* Render the AddWidget component with a callback to set 'reloadWidgets' to true when a widget is added */}
     </div>
   )
