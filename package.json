@@ -1,0 +1,74 @@
+{
+  "name": "react-to-web-api",
+  "type": "module",
+  "version": "0.2.1",
+  "description": "React components consuming Web APIs",
+  "repository": "https://github.com/dev-academy-challenges/react-to-web-api.git",
+  "main": "server/index.ts",
+  "scripts": {
+    "start": "node dist/server.js",
+    "test": "vitest",
+    "dev": "run-p dev:client dev:server",
+    "dev:client": "vite",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "run-s build:client build:server",
+    "build:client": "vite build",
+    "build:server": "esbuild --packages=external --platform=node --format=esm --outfile=dist/server.js --bundle server/index.ts",
+
+    "knex": "knex --knexfile server/db/knexfile.js",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
+  },
+  "eslintConfig": {
+    "extends": "@devacademy/eslint-config/react",
+    "ignorePatterns": [
+      "bundle.js"
+    ]
+  },
+  "author": "Dev Academy Aotearoa",
+  "license": "ISC",
+  "devDependencies": {
+    "@devacademy/eslint-config": "^1.9.1",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/express": "^4.17.14",
+    "@types/express-serve-static-core": "^4.17.33",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-router": "^5.1.19",
+    "@types/supertest": "^2.0.12",
+    "@vitejs/plugin-react": "^4.0.4",
+    "@vitest/coverage-c8": "^0.30.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "esbuild": "^0.19.0",
+    "eslint": "^8.10.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "2.6.1",
+    "react": "^18.0.2",
+    "superagent": "7.1.1",
+    "supertest": "^6.2.2",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.1"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "knex": "^2.5.1",
+    "react-dom": "^18.2.0",
+    "sqlite3": "^5.1.6"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "browserslist": "> 2%, not dead"
+}
