@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Widget, NewWidget } from '../../models/Widget'
 import AddWidget from '../components/AddWidget'
 import EditWidget from '../components/EditWidget'

@@ -1,4 +1,5 @@
 import MusicUrl from '../components/MusicUrl'
+import MusicApi from '../components/MusicApi'
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
         <p style={{ textAlign: 'center' }}>Music Tools</p>
       </h1>
       <MusicUrl />
+      <MusicApi />
     </div>
   )
 }
