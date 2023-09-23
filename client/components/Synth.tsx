@@ -27,19 +27,19 @@ const Synth = () => {
 
       {showSynth && (
         <div className="piano">
-  <div className="white-key" onClick={() => playNote(synth, 'C4')}></div>
-  <div className="black-key" onClick={() => playNote(synth, 'C#4')}></div>
-  <div className="white-key" onClick={() => playNote(synth, 'D4')}></div>
-  <div className="black-key" onClick={() => playNote(synth, 'D#4')}></div>
-  <div className="white-key" onClick={() => playNote(synth, 'E4')}></div>
-  <div className="white-key" onClick={() => playNote(synth, 'F4')}></div>
-  <div className="black-key" onClick={() => playNote(synth, 'F#4')}></div>
-  <div className="white-key" onClick={() => playNote(synth, 'G4')}></div>
-  <div className="black-key" onClick={() => playNote(synth, 'G#4')}></div>
-  <div className="white-key" onClick={() => playNote(synth, 'A4')}></div>
-  <div className="black-key" onClick={() => playNote(synth, 'A#4')}></div>
-  <div className="white-key" onClick={() => playNote(synth, 'B4')}></div>
-  <div className="white-key" onClick={() => playNote(synth, 'C5')}></div>
+  <div className="white-key" onMouseEnter={() => playNote(synth, 'C4')}></div>
+  <div className="black-key" onMouseEnter={() => playNote(synth, 'C#4')}></div>
+  <div className="white-key" onMouseEnter={() => playNote(synth, 'D4')}></div>
+  <div className="black-key" onMouseEnter={() => playNote(synth, 'D#4')}></div>
+  <div className="white-key" onMouseEnter={() => playNote(synth, 'E4')}></div>
+  <div className="white-key" onMouseEnter={() => playNote(synth, 'F4')}></div>
+  <div className="black-key" onMouseEnter={() => playNote(synth, 'F#4')}></div>
+  <div className="white-key" onMouseEnter={() => playNote(synth, 'G4')}></div>
+  <div className="black-key" onMouseEnter={() => playNote(synth, 'G#4')}></div>
+  <div className="white-key" onMouseEnter={() => playNote(synth, 'A4')}></div>
+  <div className="black-key" onMouseEnter={() => playNote(synth, 'A#4')}></div>
+  <div className="white-key" onMouseEnter={() => playNote(synth, 'B4')}></div>
+  <div className="white-key" onMouseEnter={() => playNote(synth, 'C5')}></div>
 </div>
 
       )}
