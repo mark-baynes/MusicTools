@@ -67,7 +67,7 @@ const MusicUrl = () => {
 
       {showMusicUrl && (  // Conditional rendering 
         <div className="container">
-          <h2>Music URLs</h2>
+          {/* <h2>Music URLs</h2> */}
           <AddWidget onWidgetAdded={() => setReloadWidgets(true)} />
           {selectedWidget && (
             <EditWidget widget={selectedWidget} onEdit={handleUpdate} />

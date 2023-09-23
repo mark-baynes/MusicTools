@@ -81,45 +81,47 @@ const Synth = () => {
       </button>
 
       {showSynth && (
-        <div className="piano">
-          <div className="white-key" onClick={() => playNote(synth, 'C4')}>
-            A
-          </div>
-          <div className="black-key" onClick={() => playNote(synth, 'C#4')}>
-            W
-          </div>
-          <div className="white-key" onClick={() => playNote(synth, 'D4')}>
-            S
-          </div>
-          <div className="black-key" onClick={() => playNote(synth, 'D#4')}>
-            E
-          </div>
-          <div className="white-key" onClick={() => playNote(synth, 'E4')}>
-            D
-          </div>
-          <div className="white-key" onClick={() => playNote(synth, 'F4')}>
-            F
-          </div>
-          <div className="black-key" onClick={() => playNote(synth, 'F#4')}>
-            T
-          </div>
-          <div className="white-key" onClick={() => playNote(synth, 'G4')}>
-            G
-          </div>
-          <div className="black-key" onClick={() => playNote(synth, 'G#4')}>
-            Y
-          </div>
-          <div className="white-key" onClick={() => playNote(synth, 'A4')}>
-            H
-          </div>
-          <div className="black-key" onClick={() => playNote(synth, 'A#4')}>
-            U
-          </div>
-          <div className="white-key" onClick={() => playNote(synth, 'B4')}>
-            J
-          </div>
-          <div className="white-key" onClick={() => playNote(synth, 'C5')}>
-            K
+        <div className="container">
+          <div className="piano">
+            <div className="white-key" onClick={() => playNote(synth, 'C4')}>
+              A
+            </div>
+            <div className="black-key" onClick={() => playNote(synth, 'C#4')}>
+              W
+            </div>
+            <div className="white-key" onClick={() => playNote(synth, 'D4')}>
+              S
+            </div>
+            <div className="black-key" onClick={() => playNote(synth, 'D#4')}>
+              E
+            </div>
+            <div className="white-key" onClick={() => playNote(synth, 'E4')}>
+              D
+            </div>
+            <div className="white-key" onClick={() => playNote(synth, 'F4')}>
+              F
+            </div>
+            <div className="black-key" onClick={() => playNote(synth, 'F#4')}>
+              T
+            </div>
+            <div className="white-key" onClick={() => playNote(synth, 'G4')}>
+              G
+            </div>
+            <div className="black-key" onClick={() => playNote(synth, 'G#4')}>
+              Y
+            </div>
+            <div className="white-key" onClick={() => playNote(synth, 'A4')}>
+              H
+            </div>
+            <div className="black-key" onClick={() => playNote(synth, 'A#4')}>
+              U
+            </div>
+            <div className="white-key" onClick={() => playNote(synth, 'B4')}>
+              J
+            </div>
+            <div className="white-key" onClick={() => playNote(synth, 'C5')}>
+              K
+            </div>
           </div>
         </div>
       )}
