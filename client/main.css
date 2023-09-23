@@ -12,7 +12,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #e6e1e1;
 }
 
 .container {
@@ -45,7 +45,7 @@ form input[type="text"] {
 
 /* Button Styles */
 button {
-  background-color: #007bff;
+  background-color: #68727d;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -54,7 +54,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #8a8b8c;
 }
 
 /* Audio Player */
