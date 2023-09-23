@@ -8,6 +8,7 @@ const MusicUrl = () => {
   const [widgets, setWidgets] = useState<Widget[]>([])
   const [reloadWidgets, setReloadWidgets] = useState(true)
   const [selectedWidget, setSelectedWidget] = useState<Widget | null>(null)
+  const [showMusicUrl, setShowMusicUrl] = useState(false) // New state variable
 
   useEffect(() => {
     if (reloadWidgets) {
@@ -60,21 +61,29 @@ const MusicUrl = () => {
 
   return (
     <div>
-      <h2>Music URLs</h2>
-      <AddWidget onWidgetAdded={() => setReloadWidgets(true)} />
-      {selectedWidget && (
-        <EditWidget widget={selectedWidget} onEdit={handleUpdate} />
-      )}
-      {widgets.map((widget) => (
-        <div key={widget.id}>
-          <p>Name: {widget.name}</p>
-          <p>Url: {widget.url}</p>
-          <button onClick={() => handleDelete(widget.id)}>Delete</button>
-          <button onClick={() => handleEdit(widget.id)}>Edit</button>
-        </div>
-      ))}
-    </div>
-  )
-}
+      <button onClick={() => setShowMusicUrl(!showMusicUrl)}> {/* New toggle button */}
+        {showMusicUrl ? 'Hide Music URLs' : 'Show Music URLs'}
+      </button>
 
-export default MusicUrl
+      {showMusicUrl && (  // Conditional rendering 
+        <div className="container">
+          <h2>Music URLs</h2>
+          <AddWidget onWidgetAdded={() => setReloadWidgets(true)} />
+          {selectedWidget && (
+            <EditWidget widget={selectedWidget} onEdit={handleUpdate} />
+          )}
+          {widgets.map((widget) => (
+            <div key={widget.id}>
+              <p>Name: {widget.name}</p>
+              <p>Url: {widget.url}</p>
+              <button onClick={() => handleDelete(widget.id)}>Delete</button>
+              <button onClick={() => handleEdit(widget.id)}>Edit</button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default MusicUrl;
