@@ -14,7 +14,6 @@
     "build": "run-s build:client build:server",
     "build:client": "vite build",
     "build:server": "esbuild --packages=external --platform=node --format=esm --outfile=dist/server.js --bundle server/index.ts",
-
     "knex": "knex --knexfile server/db/knexfile.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
@@ -64,7 +63,8 @@
     "express": "^4.17.2",
     "knex": "^2.5.1",
     "react-dom": "^18.2.0",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "tone": "^14.7.77"
   },
   "prettier": {
     "semi": false,
