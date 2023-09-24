@@ -61,11 +61,13 @@ const MusicUrl = () => {
 
   return (
     <div>
-      <button onClick={() => setShowMusicUrl(!showMusicUrl)}> {/* New toggle button */}
+      <button onClick={() => setShowMusicUrl(!showMusicUrl)}>
+        {' '}
+        {/* New toggle button */}
         {showMusicUrl ? 'Hide Music URLs' : 'Show Music URLs'}
       </button>
 
-      {showMusicUrl && (  // Conditional rendering 
+      {showMusicUrl && ( // Conditional rendering
         <div className="container">
           {/* <h2>Music URLs</h2> */}
           <AddWidget onWidgetAdded={() => setReloadWidgets(true)} />
@@ -75,7 +77,12 @@ const MusicUrl = () => {
           {widgets.map((widget) => (
             <div key={widget.id}>
               <p>Name: {widget.name}</p>
-              <p>Url: {widget.url}</p>
+              <p>
+                Url:{' '}
+                <a href={widget.url} target="_blank" rel="noopener noreferrer">
+                  {widget.url}
+                </a>
+              </p>
               <button onClick={() => handleDelete(widget.id)}>Delete</button>
               <button onClick={() => handleEdit(widget.id)}>Edit</button>
             </div>
@@ -83,7 +90,7 @@ const MusicUrl = () => {
         </div>
       )}
     </div>
-  );
+  )
 };
 
 export default MusicUrl;

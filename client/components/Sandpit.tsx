@@ -1,12 +1,23 @@
 import { useState, useEffect } from 'react'
+import clickSound from '../../mp3/click.mp3'
 
 const Sandpit = () => {
   const [showSandpit, setShowSandpit] = useState(false) // State variable for the toggle
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-  document.title = `You've clicked ${count} times `
-})
+    document.title = `You've clicked ${count} times`
+  }, [count])
+  
+  useEffect(() => {
+    if (count > 0) {
+      // Use the correct string path or the imported variable
+      const audio = new Audio(clickSound)
+      audio.play()
+    }
+  }, [count])
+
+ 
 
   return (
     <div>
