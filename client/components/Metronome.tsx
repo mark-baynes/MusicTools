@@ -5,7 +5,7 @@ const Metronome = () => {
   const [showMetronome, setShowMetronome] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [bpm, setBpm] = useState(120)
-  let timer
+  let timer: string | number | NodeJS.Timeout | undefined
 
   // Initialize the noise synthesizer
   const noiseSynth = new Tone.NoiseSynth({
@@ -19,28 +19,27 @@ const Metronome = () => {
     },
   }).toDestination()
 
- useEffect(() => {
-   if (isPlaying) {
-     clearInterval(timer)
-     const msPerBeat = 60000 / bpm
-     timer = setInterval(() => {
-       noiseSynth.triggerAttackRelease('8n') // 8n represents an 8th note duration
-     }, msPerBeat)
-   } else {
-     clearInterval(timer)
-   }
+  useEffect(() => {
+    if (isPlaying) {
+      clearInterval(timer)
+      const msPerBeat = 60000 / bpm
+      timer = setInterval(() => {
+        noiseSynth.triggerAttackRelease('8n') // 8n represents an 8th note duration
+      }, msPerBeat)
+    } else {
+      clearInterval(timer)
+    }
 
-   return () => {
-     clearInterval(timer)
-   }
- }, [isPlaying, bpm])
-
+    return () => {
+      clearInterval(timer)
+    }
+  }, [isPlaying, bpm])
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying)
   }
 
-  const handleBpmChange = (event) => {
+  const handleBpmChange = (event: { target: { value: number } }) => {
     const newBpm = event.target.value
     setBpm(newBpm)
   }

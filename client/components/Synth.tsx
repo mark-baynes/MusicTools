@@ -9,8 +9,14 @@ const Synth = () => {
   const [synth, setSynth] = useState<Tone.Synth | null>(null)
 
   useEffect(() => {
-    setSynth(new Tone.Synth().toDestination())
-  }, [])
+    if (showSynth) {
+      setSynth(new Tone.Synth().toDestination())
+    } else {
+      if (synth) {
+        synth.dispose()
+      }
+    }
+  }, [showSynth])
 
   function handleToggle() {
     setShowSynth(!showSynth)
@@ -32,9 +38,9 @@ const Synth = () => {
       if (keyCode === 83) {
         playNote(synth, 'D4')
       }
-       if (keyCode === 69) {
-         playNote(synth, 'D#4')
-       }
+      if (keyCode === 69) {
+        playNote(synth, 'D#4')
+      }
       if (keyCode === 68) {
         playNote(synth, 'E4')
       }
@@ -50,19 +56,18 @@ const Synth = () => {
       if (keyCode === 89) {
         playNote(synth, 'G#4')
       }
-       if (keyCode === 72) {
-         playNote(synth, 'A4')
-       }
-       if (keyCode === 85) {
-         playNote(synth, 'A#4')
-       }
-        if (keyCode === 74) {
-          playNote(synth, 'B4')
-        }
+      if (keyCode === 72) {
+        playNote(synth, 'A4')
+      }
+      if (keyCode === 85) {
+        playNote(synth, 'A#4')
+      }
+      if (keyCode === 74) {
+        playNote(synth, 'B4')
+      }
       if (keyCode === 75) {
         playNote(synth, 'C5')
       }
-      
     }
 
     window.addEventListener('keydown', keyboardNotes)
@@ -70,9 +75,6 @@ const Synth = () => {
       window.removeEventListener('keydown', keyboardNotes)
     }
   }, [synth])
-
-
-  
 
   return (
     <div>
@@ -130,4 +132,3 @@ const Synth = () => {
 }
 
 export default Synth
-

@@ -2,6 +2,7 @@ import MusicUrl from '../components/MusicUrl'
 import MusicApi from '../components/MusicApi'
 import Synth from '../components/Synth'
 import Metronome from '../components/Metronome'
+import Frequency from '../components/Frequency'
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
       <Synth />
       <br></br>
       <Metronome />
+      <br></br>
+      <Frequency />
     </div>
   )
 }
