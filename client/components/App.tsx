@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="container">
       <h1>
-        <p style={{ textAlign: 'center' }}>Music Tools</p>
+        Music Tools
       </h1>
       <MusicUrl />
       <br></br>

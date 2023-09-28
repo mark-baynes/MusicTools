@@ -14,7 +14,7 @@ beforeEach(async () => {
 afterAll(async () => {
   await connection.destroy()
 })
-
+// 6-16 is a reset before 
 describe('getWidgets', () => {
   it('returns the correct widgets array', async () => {
     const widgets = await getWidgets()

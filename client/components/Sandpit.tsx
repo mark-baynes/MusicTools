@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react'
 import clickSound from '../../mp3/click.mp3'
 
@@ -8,7 +9,7 @@ const Sandpit = () => {
   useEffect(() => {
     document.title = `You've clicked ${count} times`
   }, [count])
-  
+
   useEffect(() => {
     if (count > 0) {
       // Use the correct string path or the imported variable
@@ -16,8 +17,6 @@ const Sandpit = () => {
       audio.play()
     }
   }, [count])
-
- 
 
   return (
     <div>
