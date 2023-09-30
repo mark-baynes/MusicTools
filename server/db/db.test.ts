@@ -14,13 +14,13 @@ beforeEach(async () => {
 afterAll(async () => {
   await connection.destroy()
 })
-// 6-16 is a reset before 
+
 describe('getWidgets', () => {
   it('returns the correct widgets array', async () => {
     const widgets = await getWidgets()
 
     expect(widgets).toHaveLength(3)
-    expect(widgets[0]).toHaveProperty('mfg')
-    expect(widgets[1].inStock).toBe(8)
+    expect(widgets[0]).toHaveProperty('url')
+    expect(widgets[1].name).toBe('Soundcloud')
   })
 })

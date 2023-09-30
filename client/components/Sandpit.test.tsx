@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import Sandpit from './Sandpit' // Adjust this import to your file structure
 
-describe.skip('Sandpit component', () => {
+describe('Sandpit component', () => {
   it('displays "Sandpit" on the page', () => {
     render(<Sandpit />)
     // screen.debug()
