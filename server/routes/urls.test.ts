@@ -47,3 +47,51 @@ describe('GET /api/v1/urls', () => {
       })
   })
 })
+
+describe('POST /api/v1/urls', () => {
+  it('responds with added url on successful POST', () => {
+    // Define the request body data for the POST request.
+    const newUrlData = {
+      name: 'New URL',
+      url: 'https://example.com/new-url',
+    }
+
+    // Mock the newUrl function to return the added URL data.
+    vi.mocked(db.newUrl).mockImplementation(() => Promise.resolve(newUrlData))
+
+    return request(server)
+      .post('/api/v1/urls')
+      .send(newUrlData) // Send the POST request with the data.
+      .expect(200) // Expect a successful response status code.
+      .then((res) => {
+        // Expect the response body to contain the added URL data.
+        expect(res.body).toEqual(newUrlData)
+      })
+  })
+
+  it('responds with 500 and error on failed POST', async () => {
+    // Define the request body data for the POST request.
+    const newUrlData = {
+      name: 'Invalid URL',
+      url: 'invalid-url', // This is an invalid URL.
+    }
+
+    // Mock the newUrl function to simulate a failed POST.
+    vi.mocked(db.newUrl).mockImplementation(() =>
+      Promise.reject(new Error('Mock DB error'))
+    )
+
+    try {
+      await request(server)
+        .post('/api/v1/urls')
+        .send(newUrlData) // Send the POST request with the data.
+        .expect(500) // Expect a 500 response status code.
+
+      // Add an expect statement here to assert that the error is thrown and handled correctly.
+      expect.assertions(1) // Expect one assertion to be made.
+    } catch (err) {
+      // Handle the error here, e.g., by expecting the error message.
+      expect(err.text).toBe('Mock DB error')
+    }
+  })
+})
