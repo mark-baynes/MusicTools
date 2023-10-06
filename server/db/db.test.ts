@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, it, expect, beforeAll, beforeEach, afterAll } from 'vitest'
 import connection from './connection.ts'
-import { getWidgets } from './db.ts'
+import { getUrls } from './db.ts'
 
 beforeAll(async () => {
   await connection.migrate.latest()
@@ -15,12 +15,12 @@ afterAll(async () => {
   await connection.destroy()
 })
 
-describe('getWidgets', () => {
-  it('returns the correct widgets array', async () => {
-    const widgets = await getWidgets()
+describe('getUrls', () => {
+  it('returns the correct urls array', async () => {
+    const urls = await getUrls()
 
-    expect(widgets).toHaveLength(3)
-    expect(widgets[0]).toHaveProperty('url')
-    expect(widgets[1].name).toBe('Soundcloud')
+    expect(urls).toHaveLength(3)
+    expect(urls[0]).toHaveProperty('url')
+    expect(urls[1].name).toBe('Soundcloud')
   })
 })

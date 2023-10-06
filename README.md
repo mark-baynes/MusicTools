@@ -18,6 +18,9 @@ This exercise reverses the roles from yesterday: today the API has been (partial
   npm run knex migrate:latest
   npm run knex seed:run
   npm run dev
+
+
+  npm run knex migrate:rollback
   ```
 
   </details>

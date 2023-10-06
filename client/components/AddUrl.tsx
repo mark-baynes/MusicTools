@@ -1,25 +1,25 @@
 import { useState } from 'react'
-import { NewWidget } from '../../models/Widget'
-import { addWidget } from '../apiClient'
+import { NewUrl } from '../../models/Urls'
+import { addUrl } from '../apiClient'
 
-function AddWidget({ onWidgetAdded }: { onWidgetAdded: () => void }) {
+function AddUrl({ onUrlAdded }: { onUrlAdded: () => void }) {
   const [name, setName] = useState('')
   const [url, setUrl] = useState('')
   const [showForm, setShowForm] = useState(false) // State variable to toggle form display
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const newWidget: NewWidget = {
+    const newUrl: NewUrl = {
       name,
       url,
     }
     try {
-      await addWidget(newWidget)
-      console.log('Widget added successfully')
-      onWidgetAdded()
+      await addUrl(newUrl)
+      console.log('Url added successfully')
+      onUrlAdded()
       setShowForm(false) // Hide form after successful submission
     } catch (error) {
-      console.error('Error adding widget:', error)
+      console.error('Error adding url:', error)
     }
   }
 
@@ -62,4 +62,4 @@ function AddWidget({ onWidgetAdded }: { onWidgetAdded: () => void }) {
   )
 }
 
-export default AddWidget
+export default AddUrl

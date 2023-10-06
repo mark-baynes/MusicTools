@@ -1,61 +1,61 @@
 import { useState, useEffect } from 'react'
-import { Widget, NewWidget } from '../../models/Widget'
-import AddWidget from '../components/AddWidget'
-import EditWidget from '../components/EditWidget'
-import { getWidgets, deleteWidget, editWidget } from '../apiClient'
+import { Url, NewUrl } from '../../models/Urls'
+import AddUrl from '../components/AddUrl'
+import EditUrl from '../components/EditUrl'
+import { getUrls, deleteUrl, editUrl } from '../apiClient'
 
 const MusicUrl = () => {
-  const [widgets, setWidgets] = useState<Widget[]>([])
-  const [reloadWidgets, setReloadWidgets] = useState(true)
-  const [selectedWidget, setSelectedWidget] = useState<Widget | null>(null)
+  const [urls, setUrls] = useState<Url[]>([])
+  const [reloadUrls, setReloadUrls] = useState(true)
+  const [selectedUrl, setSelectedUrl] = useState<Url | null>(null)
   const [showMusicUrl, setShowMusicUrl] = useState(false) // New state variable
 
   useEffect(() => {
-    if (reloadWidgets) {
-      const fetchWidgets = async () => {
+    if (reloadUrls) {
+      const fetchUrls = async () => {
         try {
-          const response = await getWidgets()
-          setWidgets(response)
+          const response = await getUrls()
+          setUrls(response)
         } catch (error) {
           console.log('An error occurred:', error)
         }
       }
 
-      fetchWidgets()
-      setReloadWidgets(false)
+      fetchUrls()
+      setReloadUrls(false)
     }
-  }, [reloadWidgets])
+  }, [reloadUrls])
 
   const handleDelete = async (id: number) => {
     try {
-      await deleteWidget(id)
-      setWidgets(widgets.filter((widget) => widget.id !== id))
+      await deleteUrl(id)
+      setUrls(urls.filter((url) => url.id !== id))
     } catch (error) {
-      console.log('Error deleting widget:', error)
+      console.log('Error deleting url:', error)
     }
   }
 
   const handleEdit = (id: number) => {
-    const widgetToEdit = widgets.find((widget) => widget.id === id)
-    if (widgetToEdit) {
-      setSelectedWidget(widgetToEdit)
+    const urlToEdit = urls.find((url) => url.id === id)
+    if (urlToEdit) {
+      setSelectedUrl(urlToEdit)
     }
   }
 
-  const handleUpdate = async (updatedWidget: NewWidget) => {
-    if (!selectedWidget) return
+  const handleUpdate = async (updatedUrl: NewUrl) => {
+    if (!selectedUrl) return
     try {
-      await editWidget(selectedWidget.id, updatedWidget)
-      setWidgets(
-        widgets.map((widget) =>
-          widget.id === selectedWidget.id
-            ? { ...widget, ...updatedWidget }
-            : widget
+      await editUrl(selectedUrl.id, updatedUrl)
+      setUrls(
+        urls.map((url) =>
+          url.id === selectedUrl.id
+            ? { ...url, ...updatedUrl }
+            : url
         )
       )
-      setSelectedWidget(null)
+      setSelectedUrl(null)
     } catch (error) {
-      console.error('Error updating widget:', error)
+      console.error('Error updating url:', error)
     }
   }
 
@@ -70,27 +70,27 @@ const MusicUrl = () => {
       {showMusicUrl && ( // Conditional rendering
         <div className="container">
           {/* <h2>Music URLs</h2> */}
-          <AddWidget onWidgetAdded={() => setReloadWidgets(true)} />
-          {selectedWidget && (
-            <EditWidget widget={selectedWidget} onEdit={handleUpdate} />
+          <AddUrl onUrlAdded={() => setReloadUrls(true)} />
+          {selectedUrl && (
+            <EditUrl url={selectedUrl} onEdit={handleUpdate} />
           )}
-          {widgets.map((widget) => (
-            <div key={widget.id}>
-              <p>Name: {widget.name}</p>
+          {urls.map((url) => (
+            <div key={url.id}>
+              <p>Name: {url.name}</p>
               <p>
                 Url:{' '}
-                <a href={widget.url} target="_blank" rel="noopener noreferrer">
-                  {widget.url}
+                <a href={url.url} target="_blank" rel="noopener noreferrer">
+                  {url.url}
                 </a>
               </p>
-              <button onClick={() => handleDelete(widget.id)}>Delete</button>
-              <button onClick={() => handleEdit(widget.id)}>Edit</button>
+              <button onClick={() => handleDelete(url.id)}>Delete</button>
+              <button onClick={() => handleEdit(url.id)}>Edit</button>
             </div>
           ))}
         </div>
       )}
     </div>
   )
-};
+}
 
-export default MusicUrl;
+export default MusicUrl

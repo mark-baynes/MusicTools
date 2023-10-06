@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { NewWidget } from '../../models/Widget.ts';
+import { useState } from 'react'
+import { NewUrl } from '../../models/Urls.ts'
 
-interface EditWidgetProps {
-  widget: NewWidget;
-  onEdit: (updatedWidget: NewWidget) => void;
+interface EditUrlProps {
+  url: NewUrl
+  onEdit: (updatedUrl: NewUrl) => void
 }
 
-function EditWidget({ widget, onEdit }: EditWidgetProps) {
-  const [name, setName] = useState(widget.name);
-  const [url, setUrl] = useState(widget.url);
+function EditUrl({ url, onEdit }: EditUrlProps) {
+  const [name, setName] = useState(url.name)
+  const [urlValue, setUrlValue] = useState(url.url) // Adjusted naming here
 
   const handleUpdate = () => {
-    const updatedWidget: NewWidget = { name, url };
-    onEdit(updatedWidget);
-  };
+    const updatedUrl: NewUrl = { name, url: urlValue } // Adjusted naming here
+    onEdit(updatedUrl)
+  
+  }
 
   return (
     <div className="container">
@@ -35,8 +36,8 @@ function EditWidget({ widget, onEdit }: EditWidgetProps) {
             <input
               className="form-input"
               type="text"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
+              value={urlValue} // Adjusted naming here
+              onChange={(e) => setUrlValue(e.target.value)} // Adjusted naming here
             />
           </label>
         </div>
@@ -45,7 +46,7 @@ function EditWidget({ widget, onEdit }: EditWidgetProps) {
         </button>
       </form>
     </div>
-  );
+  )
 }
 
-export default EditWidget;
+export default EditUrl

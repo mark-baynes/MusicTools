@@ -1,8 +1,8 @@
-.widget-details .visible {
+.url-details .visible {
   display: block;
 }
 
-.widget-details .hidden {
+.url-details .hidden {
   display: none;
 }
 

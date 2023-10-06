@@ -1,9 +1,9 @@
-export interface NewWidget {
+export interface NewUrl {
   name: string
   url: string
 }
 
-export interface Widget {
+export interface Url {
   id: number
   name: string
   url: string
