@@ -4,16 +4,19 @@ import { NewUrl } from '../../models/Urls.ts'
 interface EditUrlProps {
   url: NewUrl
   onEdit: (updatedUrl: NewUrl) => void
+  onUrlUpdated: () => void
 }
 
-function EditUrl({ url, onEdit }: EditUrlProps) {
+function EditUrl({ url, onEdit, onUrlUpdated }: EditUrlProps) {
   const [name, setName] = useState(url.name)
   const [urlValue, setUrlValue] = useState(url.url) // Adjusted naming here
-
+  
+  
   const handleUpdate = () => {
     const updatedUrl: NewUrl = { name, url: urlValue } // Adjusted naming here
     onEdit(updatedUrl)
-  
+    onUrlUpdated() // Signal that the URL has been updated
+    
   }
 
   return (
@@ -36,8 +39,8 @@ function EditUrl({ url, onEdit }: EditUrlProps) {
             <input
               className="form-input"
               type="text"
-              value={urlValue} // Adjusted naming here
-              onChange={(e) => setUrlValue(e.target.value)} // Adjusted naming here
+              value={urlValue}
+              onChange={(e) => setUrlValue(e.target.value)}
             />
           </label>
         </div>
