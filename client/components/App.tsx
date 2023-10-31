@@ -9,11 +9,9 @@ function App() {
   return (
     <div className="container">
       <h1>
-        Music Tools
+      Music Tools
       </h1>
       <MusicUrl />
-      <br></br>
-      <MusicApi />
       <br></br>
       <Synth />
       <br></br>
@@ -21,7 +19,7 @@ function App() {
       <br></br>
       <Frequency />
       <br></br>
-      <Sandpit />
+      {/* <Sandpit /> */}
     </div>
   )
 }
