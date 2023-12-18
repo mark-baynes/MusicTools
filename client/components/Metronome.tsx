@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import * as Tone from 'tone'
 
 const Metronome = () => {
-  const [showMetronome, setShowMetronome] = useState(true)
+  const [showMetronome, setShowMetronome] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [bpm, setBpm] = useState(120)
   let timer: string | number | NodeJS.Timeout | undefined

@@ -8,7 +8,7 @@ const MusicUrl = () => {
   const [urls, setUrls] = useState<Url[]>([])
   const [reloadUrls, setReloadUrls] = useState(true)
   const [selectedUrl, setSelectedUrl] = useState<Url | null>(null)
-  const [showMusicUrl, setShowMusicUrl] = useState(true) // New state variable
+  const [showMusicUrl, setShowMusicUrl] = useState(false) // New state variable
 
   useEffect(() => {
     if (reloadUrls) {

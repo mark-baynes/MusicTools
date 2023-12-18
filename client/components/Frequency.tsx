@@ -70,7 +70,7 @@ const FrequencySlider = () => {
 }
 
 const Frequency = () => {
-  const [showMusicApi, setShowMusicApi] = useState(true) // State variable for the toggle
+  const [showMusicApi, setShowMusicApi] = useState(false) // State variable for the toggle
 
   return (
     <div>
