@@ -7,7 +7,6 @@ const Metronome = () => {
   const [bpm, setBpm] = useState(120)
   let timer: string | number | NodeJS.Timeout | undefined
 
-  // Initialize the noise synthesizer
   const noiseSynth = new Tone.NoiseSynth({
     noise: {
       type: 'white',

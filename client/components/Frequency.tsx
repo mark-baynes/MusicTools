@@ -71,7 +71,7 @@ const FrequencySlider = () => {
 }
 
 const Frequency = () => {
-  const [showFrequency, setShowFrequency] = useState(false) // State variable for the toggle
+  const [showFrequency, setShowFrequency] = useState(false) 
 
   return (
     <div>
@@ -79,7 +79,7 @@ const Frequency = () => {
         {showFrequency ? 'Hide Frequency' : 'Show Frequency'}
       </button>
 
-      {showFrequency && ( // Conditional rendering
+      {showFrequency && ( 
         <div className="container">
           
           <FrequencySlider />

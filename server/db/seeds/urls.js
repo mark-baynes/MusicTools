@@ -1,9 +1,7 @@
 export async function seed(knex) {
-  // Deletes ALL existing entries
   await knex('musicLinks')
     .del()
     .then(() => {
-      // Inserts seed entries
       return knex('musicLinks').insert([
         {
           id: 1,

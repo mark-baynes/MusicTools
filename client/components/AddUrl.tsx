@@ -5,9 +5,9 @@ import { addUrl } from '../apiClient'
 function AddUrl({ onUrlAdded }: { onUrlAdded: () => void }) {
   const [name, setName] = useState('')
   const [url, setUrl] = useState('')
-  const [showForm, setShowForm] = useState(false) // State variable to toggle form display
+  const [showForm, setShowForm] = useState(false) 
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault()
     const newUrl: NewUrl = {
       name,
@@ -17,7 +17,7 @@ function AddUrl({ onUrlAdded }: { onUrlAdded: () => void }) {
       await addUrl(newUrl)
       console.log('Url added successfully')
       onUrlAdded()
-      setShowForm(false) // Hide form after successful submission
+      setShowForm(false) 
     } catch (error) {
       console.error('Error adding url:', error)
     }

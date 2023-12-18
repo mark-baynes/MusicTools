@@ -30,7 +30,6 @@ const Synth = () => {
   useEffect(() => {
     function keyboardNotes(event: { keyCode: unknown }) {
       const keyCode = event.keyCode
-      // console.log(keyCode)
       if (keyCode === 65) {
         playNote(synth, 'C4')
       }

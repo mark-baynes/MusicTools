@@ -8,3 +8,7 @@ export interface Url {
   name: string
   url: string
 }
+
+export interface EditUrlProps {
+  url: NewUrl
+}

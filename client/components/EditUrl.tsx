@@ -1,21 +1,15 @@
 import { useState } from 'react'
-import { NewUrl } from '../../models/Urls.ts'
-
-interface EditUrlProps {
-  url: NewUrl
-  onEdit: (updatedUrl: NewUrl) => void
-  onUrlUpdated: () => void
-}
+import { NewUrl, EditUrlProps } from '../../models/Urls.ts'
 
 function EditUrl({ url, onEdit, onUrlUpdated }: EditUrlProps) {
   const [name, setName] = useState(url.name)
-  const [urlValue, setUrlValue] = useState(url.url) // Adjusted naming here
+  const [urlValue, setUrlValue] = useState(url.url) 
   
   
   const handleUpdate = () => {
-    const updatedUrl: NewUrl = { name, url: urlValue } // Adjusted naming here
+    const updatedUrl: NewUrl = { name, url: urlValue } 
     onEdit(updatedUrl)
-    onUrlUpdated() // Signal that the URL has been updated
+    onUrlUpdated() 
     
   }
 

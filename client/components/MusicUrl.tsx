@@ -8,7 +8,7 @@ const MusicUrl = () => {
   const [urls, setUrls] = useState<Url[]>([])
   const [reloadUrls, setReloadUrls] = useState(true)
   const [selectedUrl, setSelectedUrl] = useState<Url | null>(null)
-  const [showMusicUrl, setShowMusicUrl] = useState(false) // New state variable
+  const [showMusicUrl, setShowMusicUrl] = useState(false) 
 
   useEffect(() => {
     if (reloadUrls) {
@@ -63,13 +63,12 @@ const MusicUrl = () => {
     <div>
       <button onClick={() => setShowMusicUrl(!showMusicUrl)}>
         {' '}
-        {/* New toggle button */}
         {showMusicUrl ? 'Hide Music URLs' : 'Show Music URLs'}
       </button>
 
-      {showMusicUrl && ( // Conditional rendering
+      {showMusicUrl && ( 
         <div className="container">
-          {/* <h2>Music URLs</h2> */}
+          <h2>Music URLs</h2>
           <AddUrl onUrlAdded={() => setReloadUrls(true)} />
           {selectedUrl && (
             <EditUrl url={selectedUrl} onEdit={handleUpdate} />
