@@ -4,7 +4,7 @@
 
 Solo Project
 
-The idea of the app is to create a site containing a collection of music tools, such as a place to store useful links, a freuqncy generator, a metronome, and a small keyboard synth. This is an unfinished project used as a tool to learn tone.js and solidify react skills. It requires some styling/layout to complete, and further improvements could include the addition of further modules (e.g. musical notation).
+The idea of the app is to create a site containing a collection of music tools, such as a place to store useful links, a frequency generator, a metronome, and a small keyboard synth. This is a functional yet unfinished project used as a tool to learn tone.js and solidify react skills. It requires some styling/layout to complete, and further improvements could include the addition of further modules (e.g. musical notation).
 
 ## The Tech
 
