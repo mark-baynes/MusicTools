@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import * as Tone from 'tone'
 
 const Metronome = () => {
@@ -23,6 +23,7 @@ const Metronome = () => {
     if (isPlaying) {
       clearInterval(timer)
       const msPerBeat = 60000 / bpm
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       timer = setInterval(() => {
         noiseSynth.triggerAttackRelease('8n') // 8n represents an 8th note duration
       }, msPerBeat)

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import * as Tone from 'tone'
 
 const FrequencySlider = () => {
@@ -70,15 +70,15 @@ const FrequencySlider = () => {
 }
 
 const Frequency = () => {
-  const [showMusicApi, setShowMusicApi] = useState(false) // State variable for the toggle
+  const [showFrequency, setShowFrequency] = useState(false) // State variable for the toggle
 
   return (
     <div>
-      <button onClick={() => setShowMusicApi(!showMusicApi)}>
-        {showMusicApi ? 'Hide Frequency' : 'Show Frequency'}
+      <button onClick={() => setShowFrequency(!showFrequency)}>
+        {showFrequency ? 'Hide Frequency' : 'Show Frequency'}
       </button>
 
-      {showMusicApi && ( // Conditional rendering
+      {showFrequency && ( // Conditional rendering
         <div className="container">
           
           <FrequencySlider />

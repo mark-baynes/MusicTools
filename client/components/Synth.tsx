@@ -16,6 +16,7 @@ const Synth = () => {
         synth.dispose()
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showSynth])
 
   function handleToggle() {
